@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Navegación con Input de Búsqueda - Tailwind CSS</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+</head>
+
+<body class="bg-gray-100">
+
+    <nav class="bg-blue-600 shadow-md">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-16">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <!-- Botón para menú móvil -->
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icono del menú -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex-shrink-0">
+                        <a href="#" class="text-xl font-bold text-white">Busca Peli</a>
+                    </div>
+                    <div class="hidden sm:block sm:ml-6">
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium">Peliculas</a>
+                            <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium">Series</a>
+                        </div>
+                    </div>
+                    <!-- Input de búsqueda -->
+                    <div class="relative mx-4">
+                        <input type="text" id="input"
+                            class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                            placeholder="Search">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-4.35-4.35M17 11a6 6 0 1 0-12 0 6 6 0 0 0 12 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Botón de búsqueda -->
+                    <div
+                        class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                        <button id="miboton"
+                            class="bg-red-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600">Buscar</button>
+                    </div>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <button
+                        class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600">Sign
+                        Up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Layout principal -->
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="h-screen w-64 bg-gray-800 text-white flex flex-col">
+            <div class="p-4 text-center text-2xl font-semibold border-b border-gray-700">
+                Usuario
+            </div>
+            <nav class="flex flex-col flex-grow p-4">
+                <a href="#" class="p-2 my-2 rounded bg-gray-700 hover:bg-gray-600 users-link"
+                    data-nombre="Gael">Gael</a>
+                <a href="#" class="p-2 my-2 rounded hover:bg-gray-700 users-link" data-nombre="Maxi">Maxi</a>
+                <a href="#" class="p-2 my-2 rounded hover:bg-gray-700 users-link" data-nombre="Angel">Angel</a>
+            </nav>
+        </div>
+
+        <!-- Contenido Principal -->
+        <div class="flex-grow p-6">
+            <!-- Carrusel -->
+            <div id="image-carousel" class="splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide"><img src="avengers.PNG" alt="Image 1"
+                                class="object-cover w-full h-64"></li>
+                        <li class="splide__slide"><img src="exorcista.PNG" alt="Image 2"
+                                class="object-cover w-full h-64"></li>
+                        <li class="splide__slide"><img src="isla.PNG" alt="Image 3" class="object-cover w-full h-64">
+                        </li>
+                        <li class="splide__slide"><img src="shrek.PNG" alt="Image 4" class="object-cover w-full h-64">
+                        </li>
+                        <li class="splide__slide"><img src="mulan.PNG" alt="Image 5" class="object-cover w-full h-64">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Resultados de la búsqueda -->
+            <div id="lista" class="mt-6 grid grid-cols-1 gap-6">
+                <!-- Los resultados de la búsqueda aparecerán aquí -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
